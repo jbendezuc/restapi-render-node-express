@@ -28,9 +28,9 @@ app.use(bodyParser.urlencoded({extended:true})); //permite leer los valores en t
 app.use(express.static('uploads'));
 
 //Definir que Dominios pueden recibir la peticion de la WEB (cuando se despliega)
-const whiteList = [process.env.FRONTEND_URL];    //Lista de URLs aceptadas en el servidor para peticiones
+//const whiteList = [process.env.FRONTEND_URL,'http://localhost:5000'];    //Lista de URLs aceptadas en el servidor para peticiones
 
-const corsOptions = {                            //Opciones de configuracion cuand ose ejecute el programa
+/* const corsOptions = {                            //Opciones de configuracion cuand ose ejecute el programa
     origin: (origin,callback)=>{                    //el Origin sera la URL definida abajo, listen(5000)
         //console.log(origin); //Corre en el puerto 5173, muestra ese PUERTO
         //Revisar si la peticion viene de un servidor que esta en whiteList
@@ -41,10 +41,10 @@ const corsOptions = {                            //Opciones de configuracion cua
             callback(new Error('No permitido por CORS')); //ssi es falso, se corta el SERVIDOR
         }
     }
-}
+} */
 
 //Habilitar Cors [SE HABILITA AL FINAL EL CORS para q CAPTURE TODA LA CONFIGURACION Y CARGA DE ARCHIVOS del FLUJO]
-app.use(cors(corsOptions)); //Permite darle acceso a otros APP a nuestra API para q sean CONSUMIDAS
+app.use(cors(/*corsOptions*/)); //Permite darle acceso a otros APP a nuestra API para q sean CONSUMIDAS
 
 
 //Routas de la App
